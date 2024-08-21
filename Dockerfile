@@ -16,4 +16,7 @@ COPY --chown=lewohy:lewohy setup.sh /home/lewohy/setup.sh
 RUN chmod +x /home/lewohy/setup.sh
 
 # Run setup.sh
-CMD [ "/bin/bash" ]
+CMD [ "bash" ]
+# curl -sS https://raw.githubusercontent.com/lewohy/manjaro-setup/master/setup.sh | sh && bash
+# CMD [ "curl, "-sS", "https://raw.githubusercontent.com/lewohy/manjaro-setup/master/setup.sh", "|", "sh", "&&", "bash" ]
+

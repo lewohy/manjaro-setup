@@ -30,7 +30,7 @@ write_log "Done"
 # Update firmware
 center_text "Updating firmware"
 sudo pacman -S --noconfirm linux-firmware
-sudo systemctl restart NetworkManager
+# sudo systemctl restart NetworkManager
 write_log "Done"
 
 # Install yay
