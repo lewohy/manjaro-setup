@@ -50,6 +50,9 @@ write_log "Done"
 # Install
 center_text "Install packages"
 yay -S --noconfirm \
+    google-chrome \
+    obsidian \
+    discord \
     fish \
     ttf-jetbrains-mono-nerd \
     tofi \
@@ -103,8 +106,8 @@ write_log "Done"
 center_text "Setup resilio-sync"
 mkdir -p ~/.config/rslsync ~/.sync
 gh repo clone lewohy/rslsync ~/.config/rslsync
-systemctl enable rslsync.service
-systemctl start rslsync.service
+systemctl enable --user rslsync.service
+systemctl start --user rslsync.service
 write_log "Done"
 
 # timedatectl(듀얼부팅시 윈도우-리눅스 시간안맞는 문제 해결)
