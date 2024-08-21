@@ -1,0 +1,54 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "docker: build",
+            "type": "shell",
+            "command": "docker",
+            "args": [
+                "build",
+                "-t",
+                "${input:image-name}",
+                "."
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+        },
+        {
+            "label": "docker: run",
+            "type": "shell",
+            "command": "docker",
+            "args": [
+                "run",
+                "-it",
+                "--rm",
+                "--name",
+                "${input:container-name}",
+                "${input:image-name}",
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "dependsOn": "docker: build"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "image-name",
+            "type": "promptString",
+            "description": "Enter the image name",
+            "default": "manjaro-setup-test",
+        },
+        {
+            "id": "container-name",
+            "type": "promptString",
+            "description": "Enter the container name",
+            "default": "manjaro-setup-test",
+        }
+    ]
+}
